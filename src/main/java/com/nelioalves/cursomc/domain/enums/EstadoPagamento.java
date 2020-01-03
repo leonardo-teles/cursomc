@@ -1,15 +1,16 @@
 package com.nelioalves.cursomc.domain.enums;
 
-public enum TipoCliente {
+public enum EstadoPagamento {
 
-	PESSOAFISICA(1, "Pessoa Física"),
-	PESSOAJURIDICA(2, "Pessoa Jurídica");
+	PENDENTE(1, "Pendente"),
+	QUITADO(2, "Quitado"),
+	CANCELADO(3, "Cancelado");
 	
 	private int codigo;
 	
 	private String descricao;
 	
-	private TipoCliente(int codigo, String descricao){
+	private EstadoPagamento(int codigo, String descricao){
 		this.codigo = codigo;
 		this.descricao = descricao;
 	}
@@ -22,12 +23,12 @@ public enum TipoCliente {
 		return descricao;
 	}
 	
-	public static TipoCliente toEnum(Integer codigo) {
+	public static EstadoPagamento toEnum(Integer codigo) {
 		if(codigo == null) {
 			return null;
 		}
 		
-		for(TipoCliente x : TipoCliente.values()) {
+		for(EstadoPagamento x : EstadoPagamento.values()) {
 			if(codigo.equals(x.getCodigo())) {
 				return x;
 			}
